@@ -1,13 +1,13 @@
 import React, { useEffect } from 'react';
 import {connect} from 'react-redux';
-import TodoItem from './TodoItem';
+import TodoItemConnector from './TodoItemConnector';
 import {featchTodo} from '../redux/action'; 
 import { SHOW_ALL, SHOW_COMPLITED } from '../redux/types';
 
-function TodoList({ todos, needShow, featchTodo}) {
+function TodoList({ todos, needShow, featchTodo }) {
   useEffect(() => {
     featchTodo();
-  }, []);
+  }, [featchTodo]);
 
   let todoList;
   if (needShow === SHOW_ALL) {
@@ -21,7 +21,7 @@ function TodoList({ todos, needShow, featchTodo}) {
   return (
     <ul className="list-group pt-3">
       {
-        todoList.map(todo => <TodoItem todo={todo} key={todo.id} />)
+        todoList.map(todo => <TodoItemConnector todo={todo} key={todo.id} />)
       }
     </ul>
   );
