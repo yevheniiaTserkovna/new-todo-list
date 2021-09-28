@@ -65,16 +65,11 @@ export function showIncomplited() {
 }
 
 export function showAlert(alert) {
-  return {
-    type: SHOW_ALERT,
-    payload: alert
-  };
-}
-
-export function showAndHide () {
   return function (dispatch) {
-    dispatch(showAlert());
-
+    dispatch({
+      type: SHOW_ALERT,
+      payload: alert
+    });
     setTimeout(() => {
       dispatch(hideAlert());
     }, 3000); 

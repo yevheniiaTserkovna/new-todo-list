@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
-import { createTodo, showAndHide } from '../redux/action';
+import { createTodo, showAlert } from '../redux/action';
 
-function Form({createTodo, showAndHide}) {
+function Form({createTodo, showAlert}) {
   const [state, setState] = useState('');
 
   const  inputHandler = (event) => {
@@ -13,14 +13,14 @@ function Form({createTodo, showAndHide}) {
     event.preventDefault();
 
     if (!state.trim()) {
-      showAndHide({text: 'Поле не должно быть пустым', type: 'danger'});
+      showAlert({text: 'Поле не должно быть пустым', type: 'danger'});
       return;
     }
 
     const newTodo = {text: state, isDone: false};
     createTodo(newTodo);
 
-    showAndHide({text: 'Вы добавили запись ' + state, type: 'success'});
+    showAlert({text: 'Вы добавили запись ' + state, type: 'success'});
     setState('');
   }
 
@@ -42,7 +42,7 @@ function Form({createTodo, showAndHide}) {
 
 const mapDispatchToProps = {
   createTodo,
-  showAndHide,
+  showAlert
 };
 
 export default connect(null, mapDispatchToProps)(Form);
