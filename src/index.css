@@ -11,3 +11,21 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.editForm {
+  width: 80%;
+}
+
+.alert-enter {
+  opacity: 0;
+}
+
+.alert-enter-active { 
+  transition: opacity 2000ms ease-out;
+  opacity: 1;
+}
+
+.alert-exit-active {
+  transition: opacity 2000ms ease-out;
+  opacity: 0;
+}

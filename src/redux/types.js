@@ -1,0 +1,10 @@
+export const FEATCH_TODO = 'TODO/FEATCH_TODO';
+export const CREATE_TODO = 'TODO/CREATE_TODO';
+export const CHANGE_DONE = 'TODO/CHANGE_DONE';
+export const DELETE_TODO = 'TODO/DELETE_TODO';
+export const SHOW_ALL = 'TODO/SHOW_ALL';
+export const SHOW_COMPLITED = 'TODO/SHOW_COMPLITED';
+export const SHOW_INCOMPLITED = 'TODO/SHOW_INCOMPLITED';
+export const EDIT_TODO = 'TODO/EDIT_TODO';
+export const SHOW_ALERT = 'ALERT/SHOW_ALERT'; 
+export const HIDE_ALERT = 'ALERT/HIDE_ALERT';
