@@ -1,6 +1,6 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import ReactDOM from 'react-dom';
-import {Provider} from 'react-redux';
+import { Provider } from 'react-redux';
 import thunk from 'redux-thunk';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './index.css';
@@ -10,23 +10,23 @@ import { rootReducer } from './redux/rootReducer';
 
 //------------------------------
 //for test
-function logger (state) {
+function logger(state) {
   return function (next) {
     return function (action) {
       console.log('action = ', action.type);
       console.log('state = ', state.getState());
       return next(action);
-    }
-  }
+    };
+  };
 }
 //-----------------------
 
 const store = createStore(rootReducer, applyMiddleware(thunk, logger));
 
 const app = (
-	<Provider store={store}>
-		<App />
-	</Provider>
+  <Provider store={store}>
+    <App />
+  </Provider>
 );
 
 ReactDOM.render(app, document.getElementById('root'));
