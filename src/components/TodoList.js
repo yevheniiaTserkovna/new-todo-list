@@ -9,27 +9,28 @@ function TodoList({ todos, needShow, featchTodo }) {
     featchTodo();
   }, [featchTodo]);
 
-  let todoList;
-  if (needShow === SHOW_ALL) {
-    todoList = todos;
-  } else if (needShow === SHOW_COMPLITED) {
-    todoList = todos.filter(todo => todo.isDone);
-  } else {
-    todoList = todos.filter(todo => !todo.isDone);
-  }
-
   return (
     <ul className="list-group pt-3">
       {
-        todoList.map(todo => <TodoItemConnector todo={todo} key={todo.id} />)
+        todos.map(todo => <TodoItemConnector todo={todo} key={todo.id} />)
       }
     </ul>
   );
 }
 
 const mapStateToProps = state => {
+  const todos = state.todo.todoList;
+  let todoList;
+  if (state.todo.needShow === SHOW_ALL) {
+    todoList = todos;
+  } else if (state.todo.needShow === SHOW_COMPLITED) {
+    todoList = todos.filter(todo => todo.isDone);
+  } else {
+    todoList = todos.filter(todo => !todo.isDone);
+  }
+
   return {
-    todos: state.todo.todoList,
+    todos: todoList,
     needShow: state.todo.needShow
   };
 }
